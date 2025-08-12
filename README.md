@@ -22,9 +22,37 @@ A comprehensive product search system that integrates with Supabase for product 
 | `openai_mcp.py`         | Optional component for natural language processing of queries               |
 
 ## Installation
-1. Install dependencies:
-
+1. Create and activate a virtual environment
+- From your project folder, run:
+**python -m venv venv**
+    python – the Python interpreter installed on your system
+    -m venv – tells Python to run the built-in virtual environment module
+    venv – the folder name where the virtual environment will be stored (you can name it anything, but venv is common)
+- Activate the Virtual Environment :
+**venv\Scripts\activate**
+- Verify Activation
+ If the environment is activated, your terminal prompt will show (venv) at the start:
+**(venv) D:\SB\product_search_bot>**
+- Deactivate the Virtual Environment
+  When done, run:
+**deactivate**
+2. Install dependencies:
     pip install fastapi uvicorn supabase opensearch-py python-dotenv requests openai
+3. Set up .env file
+Create a .env file in the project root using the template below.
+.env Template
+# Supabase Configuration
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_service_key
+
+# OpenSearch Configuration
+OPENSEARCH_HOST=your_opensearch_host
+OPENSEARCH_PORT=9200
+OPENSEARCH_USER=your_username
+OPENSEARCH_PASS=your_password
+## LM Studio Model Details
+This system is tested with **Qwen2-Math-7B-Instruct** model in LM Studio.
+    You can replace it with any other chat/instruction-tuned model in LM Studio by updating the MODEL_NAME in openai_mcp.py.
 ## Usage
 |    Command	        |      Description                  |
 |-----------------------|-----------------------------------|
@@ -42,5 +70,4 @@ A comprehensive product search system that integrates with Supabase for product 
 
 # API Documentation
 **Endpoint**  **Method**	  
-
 /mcp/call	-    POST	 
